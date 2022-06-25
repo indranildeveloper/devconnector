@@ -1,5 +1,10 @@
-const express = require("express");
-const connectDB = require("./config/db");
+import express from "express";
+import connectDB from "./config/db";
+
+import userRouter from "./routes/api/users";
+import authRouter from "./routes/api/auth";
+import postsRouter from "./routes/api/posts";
+import profileRouter from "./routes/api/profile";
 
 const app = express();
 
@@ -14,10 +19,11 @@ app.get("/", (req, res) => {
 });
 
 // Define Routes
-app.use("/api/users", require("./routes/api/users"));
-app.use("/api/auth", require("./routes/api/auth"));
-app.use("/api/posts", require("./routes/api/posts"));
-app.use("/api/profile", require("./routes/api/profile"));
+
+app.use("/api/users", userRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/posts", postsRouter);
+app.use("/api/profile", profileRouter);
 
 const PORT = process.env.PORT || 8000;
 
