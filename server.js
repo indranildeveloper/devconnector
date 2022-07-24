@@ -9,7 +9,7 @@ import profileRouter from "./routes/api/profile";
 const app = express();
 
 // Database Connection
-connectDB();
+connectDB()
 
 // Init Middleware
 app.use(express.json({ extended: false }));
@@ -19,7 +19,6 @@ app.get("/", (req, res) => {
 });
 
 // Define Routes
-
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postsRouter);
