@@ -39,4 +39,22 @@ router.put("/like/:id", authMiddleware, postController.likePost);
 // @access  Private
 router.put("/unlike/:id", authMiddleware, postController.unlikePost);
 
+// @route   POST api/posts/comment/:id
+// @desc    Comment on a post
+// @access  Private
+router.post(
+  "/comment/:id",
+  [authMiddleware, [check("text", "Text is required!").not().isEmpty()]],
+  postController.createComment
+);
+
+// @route   DELETE api/posts/comment/:id/:comment_id
+// @desc    Delete a comment
+// @access  Private
+router.delete(
+  "/comment/:id/:comment_id",
+  authMiddleware,
+  postController.deleteComment
+);
+
 export default router;
