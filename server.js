@@ -9,7 +9,7 @@ import profileRouter from "./routes/api/profile";
 const app = express();
 
 // Database Connection
-connectDB()
+connectDB();
 
 // Init Middleware
 app.use(express.json({ extended: false }));
