@@ -81,7 +81,10 @@ footer {
   font-weight: 500;
   background-color: $dark-color;
   color: #ffffff;
-  margin-top: auto;
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  bottom: 0;
   .footer {
     display: flex;
     align-items: center;
