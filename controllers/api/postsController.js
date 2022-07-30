@@ -116,7 +116,7 @@ const postController = {
       res.status(500).send("Server Error!");
     }
   },
-
+  
   async createComment(req, res) {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
