@@ -1,19 +1,25 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Navbar, Landing, Footer, Register, Login } from "./components";
+import { Provider } from "react-redux";
+import store from "./store";
+import { Navbar, Landing, Footer, Register, Login, Alert } from "./components";
+
 
 import "./scss/style.scss";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Navbar />
+        <Alert />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </Provider>
   );
 };
 
