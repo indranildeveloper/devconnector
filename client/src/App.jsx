@@ -1,6 +1,15 @@
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Navbar, Landing, Footer, Register, Login, Alert } from "./components";
+import {
+  Navbar,
+  Landing,
+  Footer,
+  Register,
+  Login,
+  Alert,
+  Dashboard,
+  PrivateRoute,
+} from "./components";
 // Redux
 import { Provider } from "react-redux";
 import store from "./store";
@@ -26,6 +35,10 @@ const App = () => {
           <Route path="/" element={<Landing />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route
+            path="/dashboard/*"
+            element={<PrivateRoute component={<Dashboard />} />}
+          />
         </Routes>
         <Footer />
       </BrowserRouter>
