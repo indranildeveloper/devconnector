@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 
-const Register = ({ setAlert, register }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,6 +28,10 @@ const Register = ({ setAlert, register }) => {
     }
   };
 
+  if (isAuthenticated) {
+    return <Navigate to="/dashboard" />;
+  }
+
   return (
     <>
       <section className="container">
@@ -48,7 +52,7 @@ const Register = ({ setAlert, register }) => {
               placeholder="Your Full Name"
               value={name}
               onChange={(e) => handleChange(e)}
-              // required
+              required
             />
           </div>
           <div className="form-group">
@@ -60,7 +64,7 @@ const Register = ({ setAlert, register }) => {
               placeholder="Your Email Address"
               value={email}
               onChange={(e) => handleChange(e)}
-              // required
+              required
             />
             <small className="form-text">
               * This site uses Gravatar, so if you want a profile image then use
@@ -74,7 +78,7 @@ const Register = ({ setAlert, register }) => {
               type="password"
               name="password"
               placeholder="Password"
-              // minLength="6"
+              minLength="6"
               value={password}
               onChange={(e) => handleChange(e)}
             />
@@ -86,7 +90,7 @@ const Register = ({ setAlert, register }) => {
               type="password"
               name="confirmPassword"
               placeholder="Confirm Password"
-              // minLength="6"
+              minLength="6"
               value={confirmPassword}
               onChange={(e) => handleChange(e)}
             />
@@ -109,6 +113,11 @@ const Register = ({ setAlert, register }) => {
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
 };
 
-export default connect(null, { setAlert, register })(Register);
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { setAlert, register })(Register);

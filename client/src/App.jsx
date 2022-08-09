@@ -1,12 +1,22 @@
+import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Navbar, Landing, Footer, Register, Login, Alert } from "./components";
+// Redux
 import { Provider } from "react-redux";
 import store from "./store";
-import { Navbar, Landing, Footer, Register, Login, Alert } from "./components";
-
-
+import setAuthToken from "./utils/setAuthToken";
+import { loadUser } from "./actions/auth";
 import "./scss/style.scss";
 
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
 const App = () => {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
   return (
     <Provider store={store}>
       <BrowserRouter>
