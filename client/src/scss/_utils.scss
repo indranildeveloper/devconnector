@@ -148,14 +148,14 @@
 // Alters
 .alert {
   padding: 0.8rem;
-  margin: 1rem;
+  margin: 1rem 0 0 0;
   opacity: 0.9;
   background: $light-color;
   color: #333333;
   border-radius: 5px;
 
   &-container {
-    margin: 6rem auto 0 auto;
+    margin: 4rem auto 0 auto;
     max-width: $max-width;
     overflow: hidden;
     padding: 0 2rem;
