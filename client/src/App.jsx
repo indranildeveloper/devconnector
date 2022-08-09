@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { Navbar, Landing, Footer, Register, Login, Alert } from "./components";
 
+
 import "./scss/style.scss";
 
 const App = () => {
