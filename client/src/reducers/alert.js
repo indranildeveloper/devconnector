@@ -15,3 +15,4 @@ const alert = (state = initialState, action) => {
 };
 
 export default alert;
+
