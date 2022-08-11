@@ -1,15 +1,13 @@
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {
-  Navbar,
-  Landing,
-  Footer,
-  Register,
-  Login,
-  Alert,
-  Dashboard,
-  PrivateRoute,
-} from "./components";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+import Landing from "./components/layout/Landing";
+import Alert from "./components/layout/Alert";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
+import Dashboard from "./components/dashboard/Dashboard";
+import PrivateRoute from "./components/routes/PrivateRoute";
 // Redux
 import { Provider } from "react-redux";
 import store from "./store";
@@ -37,8 +35,12 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route
-            path="/dashboard/*"
-            element={<PrivateRoute component={<Dashboard />} />}
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
           />
         </Routes>
         <Footer />
