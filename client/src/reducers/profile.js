@@ -24,6 +24,7 @@ const profile = (state = initialState, action) => {
         error: payload,
         loading: false,
       };
+
     case CLEAR_PROFILE:
       return {
         ...state,
