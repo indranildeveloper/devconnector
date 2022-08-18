@@ -57,7 +57,10 @@ const profileController = {
     if (company) profileFields.githubusername = githubusername;
 
     if (skills) {
-      profileFields.skills = skills.split(",").map((skill) => skill.trim());
+      profileFields.skills = skills
+        .toString()
+        .split(",")
+        .map((skill) => skill.trim());
     }
 
     // Build social object
@@ -79,13 +82,12 @@ const profileController = {
         );
         return res.json(profile);
       }
-
       // Create Profile
       profile = new Profile(profileFields);
       await profile.save();
       res.json(profile);
     } catch (err) {
-      console.error(err);
+      console.error(err.message);
       res.status(500).send("Server Error!");
     }
   },

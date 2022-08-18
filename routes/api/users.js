@@ -3,7 +3,6 @@ import { check } from "express-validator";
 import { userController } from "../../controllers";
 
 const router = express.Router();
-
 // @route   POST api/users
 // @desc    Register User
 // @access  Public
