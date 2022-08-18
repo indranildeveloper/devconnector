@@ -35,11 +35,10 @@ export const createProfile =
         payload: res.data,
       });
 
-      dispatch(setAlert(edit ? "Profile Updated!" : "Profile Created!"));
-
-      if (!edit) {
-        navigate("/dashboard");
-      }
+      dispatch(
+        setAlert(edit ? "Profile Updated!" : "Profile Created!", "success")
+      );
+      navigate("/dashboard");
     } catch (err) {
       const errors = err.response.data.errors;
       if (errors) {
