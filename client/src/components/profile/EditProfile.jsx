@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { getCurrentProfile, createProfile } from "../../actions/profile";
 
-import { createProfile } from "../../actions/profile";
-
-const CreateProfile = ({ createProfile }) => {
+const EditProfile = (props) => {
   const [formData, setFormData] = useState({
     company: "",
     website: "",
@@ -20,9 +18,7 @@ const CreateProfile = ({ createProfile }) => {
     youtube: "",
     instagram: "",
   });
-
   const [displaySocialInputs, setDisplaySocialInputs] = useState(false);
-  const navigate = useNavigate();
 
   const {
     company,
@@ -40,12 +36,7 @@ const CreateProfile = ({ createProfile }) => {
   } = formData;
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    createProfile(formData, navigate);
+    setFormData({ ...formData, [e.target.name]: [e.target.value] });
   };
 
   return (
@@ -57,7 +48,7 @@ const CreateProfile = ({ createProfile }) => {
       </p>
       <small className="text-danger">* Required Fields</small>
 
-      <form className="form" onSubmit={(e) => handleSubmit(e)}>
+      <form className="form">
         <div className="form-group">
           <select
             name="status"
@@ -229,8 +220,5 @@ const CreateProfile = ({ createProfile }) => {
   );
 };
 
-CreateProfile.propTypes = {
-  createProfile: PropTypes.func.isRequired,
-};
-
-export default connect(null, { createProfile })(CreateProfile);
+EditProfile.propTypes = {};
+export default EditProfile;

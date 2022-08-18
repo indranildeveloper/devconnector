@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import Spinner from "../layout/Spinner";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profile";
+import DashboardActions from "./DashboardActions";
+import Spinner from "../layout/Spinner";
 
 const Dashboard = ({
   getCurrentProfile,
@@ -23,7 +24,9 @@ const Dashboard = ({
         <i className="fas fa-user"></i> Welcome {user && user.name}
       </p>
       {profile !== null ? (
-        <>has</>
+        <>
+          <DashboardActions />
+        </>
       ) : (
         <>
           <p>You have not yet set up the profile, please add some info</p>
