@@ -1,7 +1,7 @@
 import config from "config";
 import request from "request";
 import { validationResult } from "express-validator";
-import { Profile, User } from "../../models";
+import { Profile, User, Post } from "../../models";
 
 const profileController = {
   async getCurrentUserProfile(req, res) {
@@ -125,8 +125,8 @@ const profileController = {
 
   async deleteProfile(req, res) {
     try {
-      // @TODO: Remove user posts
-
+      // Remove user posts
+      await Post.deleteMany({ user: req.user.id });
       // Remove profile
       await Profile.findOneAndRemove({ user: req.user.id });
       // Remove user
