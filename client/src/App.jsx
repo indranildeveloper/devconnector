@@ -8,10 +8,12 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import PrivateRoute from "./components/routes/PrivateRoute";
-import CreateProfile from "./components/profile/CreateProfile";
-import EditProfile from "./components/profile/EditProfile";
-import AddExperience from "./components/profile/AddExperience";
-import AddEducation from "./components/profile/AddEducation";
+import CreateProfile from "./components/profile-forms/CreateProfile";
+import EditProfile from "./components/profile-forms/EditProfile";
+import AddExperience from "./components/profile-forms/AddExperience";
+import AddEducation from "./components/profile-forms/AddEducation";
+import Profiles from "./components/profiles/Profiles";
+import Profile from "./components/profile/Profile";
 // Redux
 import { Provider } from "react-redux";
 import store from "./store";
@@ -38,6 +40,8 @@ const App = () => {
           <Route path="/" element={<Landing />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/profiles" element={<Profiles />} />
+          <Route path="/profile/:userId" element={<Profile />} />
           <Route
             path="/dashboard"
             element={
