@@ -18,7 +18,7 @@ const ProfileAbout = ({
       <h2 className="text-primary">Skill Set</h2>
       <div className="skills">
         {skills.map((skill, index) => (
-          <div className="p-1 flex" key={index}>
+          <div className="p-1" key={index}>
             <i className="fas fa-check"></i> {skill}
           </div>
         ))}
