@@ -7,6 +7,7 @@ import {
   GET_REPOS,
 } from "../actions/types";
 
+
 const initialState = {
   profile: null,
   profiles: [],
@@ -39,13 +40,14 @@ const profile = (state = initialState, action) => {
         repos: payload,
         loading: false,
       };
-
+      
     case PROFILE_ERROR:
       return {
         ...state,
         error: payload,
         loading: false,
         profile: null,
+
       };
 
     case CLEAR_PROFILE:

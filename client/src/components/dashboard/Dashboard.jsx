@@ -40,6 +40,7 @@ const Dashboard = ({
               <i className="fas fa-user-minus"></i> Delete my account
             </button>
           </div>
+
         </>
       ) : (
         <>

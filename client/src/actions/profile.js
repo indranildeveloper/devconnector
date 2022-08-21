@@ -10,6 +10,7 @@ import {
   ACCOUNT_DELETED,
 } from "./types";
 
+
 // Get current user profile
 export const getCurrentProfile = () => async (dispatch) => {
   try {
@@ -71,6 +72,7 @@ export const getGithubRepos = (username) => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
@@ -229,3 +231,4 @@ export const deleteAccount = () => async (dispatch) => {
     }
   }
 };
+

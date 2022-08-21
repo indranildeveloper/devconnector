@@ -4,6 +4,7 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Alert from "./components/layout/Alert";
 import ComponentRoutes from "./components/routes/ComponentRoutes";
+
 // Redux
 import { Provider } from "react-redux";
 import store from "./store";
