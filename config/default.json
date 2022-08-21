@@ -1,5 +1,5 @@
 {
-  "mongoURI": "mongodb://localhost:27017/devconnector",
+  "mongoURI": "mongodb+srv://indranil:Indranil1998@nodejsblog.vmdy6.mongodb.net/?retryWrites=true&w=majority",
   "jwtSecret": "mySecretToken",
   "githubClientId": "4a8ad9a8b872de18957c",
   "githubSecret": "0790bbb9c98d7253eed2c18b31880cf6fff29715"
