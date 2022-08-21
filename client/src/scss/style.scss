@@ -28,6 +28,10 @@ img {
   width: 100%;
 }
 
+textarea {
+  resize: none;
+}
+
 // Navbar
 .navbar {
   display: flex;
@@ -147,6 +151,7 @@ footer {
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-wrap: wrap;
       text-align: center;
     }
   }
@@ -209,6 +214,15 @@ footer {
   img {
     width: 150px;
   }
+}
+
+// Comments
+.comment-count {
+  background-color: $light-color;
+  color: $dark-color;
+  padding: 0 6px;
+  border-radius: 4px;
+  margin-left: 6px;
 }
 
 // ScrollBar

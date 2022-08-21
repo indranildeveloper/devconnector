@@ -9,7 +9,12 @@
     "start": "node -r esm server.js",
     "server": "nodemon -r esm server",
     "client": "yarn --cwd client start",
-    "dev": "concurrently \"yarn server\" \"yarn client\""
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn --cwd client install && yarn --cwd client build"
+  },
+  "engines": {
+    "node": "16.x",
+    "yarn": "1.x"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
