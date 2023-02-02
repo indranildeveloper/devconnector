@@ -9,8 +9,7 @@
     "start": "node -r esm server.js",
     "server": "nodemon -r esm server",
     "client": "yarn --cwd client start",
-    "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn --cwd client install && yarn --cwd client build"
+    "dev": "concurrently \"yarn server\" \"yarn client\""
   },
   "engines": {
     "node": "16.x",
